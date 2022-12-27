@@ -12,13 +12,40 @@
 
     <script>
 
-function getComputerChoice(){
-    let options = ["Rock", "Paper", "Scissors"];
-    let index = Math.floor(Math.random()*options.length);
-    let compChoice = options[index];
-    return compChoice;
-}
+        function getComputerChoice() {
+            let options = ["Rock", "Paper", "Scissors"];
+            let index = Math.floor(Math.random() * options.length);
+            let compChoice = options[index];
+            return compChoice;
+        }
 
+        function playRound(playerSelection, computerSelection = getComputerChoice()) {
+            playerSelection = prompt("Make a choice!");
+
+            if (playerSelection.toLowerCase()  === "rock".toLowerCase() && computerSelection === "Scissors") {
+                return "You win! Rock beats Scissors";
+            }
+            else if (playerSelection.toLowerCase()  === "paper".toLowerCase() && computerSelection === "Rock") {
+                return "You win! Paper beats Rock";
+            }
+            else if (playerSelection.toLowerCase()  === "scissors".toLowerCase() && computerSelection === "Paper") {
+                return "You win! Scissors beats Paper";
+            }
+            else if (playerSelection.toLowerCase()  === "rock".toLowerCase() && computerSelection === "Paper") {
+                return "You lose! Paper beats Rock";
+            }
+            else if (playerSelection.toLowerCase()  === "paper".toLowerCase() && computerSelection === "Scissors") {
+                return "You lose! Scissors beats Paper";
+            }
+            else if (playerSelection.toLowerCase() === "scissors".toLowerCase() && computerSelection === "Rock") {
+                return "You lose! Rock beats Scissors";
+            }
+            else{
+                return "It's a tie!"
+            }
+
+        }
+            console.log(playRound());
 
 
 
