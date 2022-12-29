@@ -21,32 +21,37 @@
             return compChoice;
         }
 
-        function playRound(playerSelection, computerSelection = getComputerChoice()) {
+        function getPlayerChoice() {
+            let choice = prompt("Make your choice!")
+            return choice;
+        }
 
-            playerSelection = prompt("Make a choice!");
+
+        function playRound(playerSelection, computerSelection) {
+
 
             if (playerSelection.toLowerCase() === "rock".toLowerCase() && computerSelection === "Scissors") {
-                playerScore += 1;
+                playerScore++;
                 return "You win! Rock beats Scissors" + " " + "Player score: " + playerScore + " " + "AI Score: " + " " + compScore;
             }
             else if (playerSelection.toLowerCase() === "paper".toLowerCase() && computerSelection === "Rock") {
-                playerScore += 1;
+                playerScore++;
                 return "You win! Paper beats Rock" + " " + "Player score: " + playerScore + " " + "AI Score: " + " " + compScore;;
             }
             else if (playerSelection.toLowerCase() === "scissors".toLowerCase() && computerSelection === "Paper") {
-                playerScore += 1;
+                playerScore++;
                 return "You win! Scissors beats Paper" + " " + "Player score: " + playerScore + " " + "AI Score: " + " " + compScore;;
             }
             else if (playerSelection.toLowerCase() === "rock".toLowerCase() && computerSelection === "Paper") {
-                compScore += +1;
+                compScore++;
                 return "You lose! Paper beats Rock" + " " + "Player score: " + playerScore + " " + "AI Score: " + " " + compScore;;
             }
             else if (playerSelection.toLowerCase() === "paper".toLowerCase() && computerSelection === "Scissors") {
-                compScore +=1;
+                compScore++;
                 return "You lose! Scissors beats Paper" + " " + "Player score: " + playerScore + " " + "AI Score: " + " " + compScore;;
             }
             else if (playerSelection.toLowerCase() === "scissors".toLowerCase() && computerSelection === "Rock") {
-                compScore +=1;
+                compScore++;
                 return "You lose! Rock beats Scissors" + " " + "Player score: " + playerScore + " " + "AI Score: " + " " + compScore;;
             }
             else {
@@ -55,24 +60,27 @@
 
         }
 
+        function displayWinner(playerScore,compScore){
+            if(playerScore>compScore){
+                return "Player wins the game!"
+            }
+            else if(playerScore<compScore){
+                return "You lose!"
+            }
+        }
+
         function game() {
             for (let i = 0; i < 5; i++) {
-                playRound(playerScore, compScore);
-                if(playerScore===3){
-                    return "Player wins";
-                }else if(compScore===3){
-                    return "Computer wins";
-                }
-                }
+                const playerSelection = getPlayerChoice();
+                const computerSelection = getComputerChoice();
+                console.log(playRound(playerSelection, computerSelection));
             }
+            displayWinner(playerScore,compScore);
+            console.log(displayWinner(playerScore,compScore));
+            }
+            
+        game();
 
-            console.log(game());
-
-
-
-
-
-        
 
 
 
